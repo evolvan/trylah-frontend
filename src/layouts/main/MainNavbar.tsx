@@ -12,6 +12,8 @@ import { MHidden } from '../../components/@material-extend'
 import MenuDesktop from './MenuDesktop'
 import MenuMobile from './MenuMobile'
 import navConfig from './MenuConfig'
+//
+import { PATH_AUTH } from '../../routes/paths'
 
 // ----------------------------------------------------------------------
 
@@ -92,7 +94,7 @@ export default function MainNavbar() {
             <Logo />
           </RouterLink>
           <Label color="info" sx={{ ml: 1 }}>
-            Simple Ts v2.6.0
+            Demo
           </Label>
           <Box sx={{ flexGrow: 1 }} />
 
@@ -100,12 +102,8 @@ export default function MainNavbar() {
             <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
           </MHidden>
 
-          <Button
-            variant="contained"
-            target="_blank"
-            href="https://material-ui.com/store/items/minimal-dashboard/"
-          >
-            Purchase Now
+          <Button variant="contained" href={PATH_AUTH.register}>
+            Sign Up
           </Button>
 
           <MHidden width="mdUp">

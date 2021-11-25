@@ -19,6 +19,7 @@ function responsiveFontSizes({ sm, md, lg }: { sm: number; md: number; lg: numbe
 }
 
 const FONT_PRIMARY = 'Public Sans, sans-serif' // Google Font
+const FONT_TRYLAH_LOGO = 'Pacifico, cursive'
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
 const typography = {
@@ -26,6 +27,7 @@ const typography = {
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,
+
   h1: {
     fontWeight: 700,
     lineHeight: 80 / 64,
@@ -96,7 +98,63 @@ const typography = {
     lineHeight: 24 / 14,
     fontSize: pxToRem(14),
     textTransform: 'capitalize'
+  },
+  logoh1: {
+    fontFamily: FONT_TRYLAH_LOGO,
+    fontWeight: 700,
+    lineHeight: 80 / 64,
+    fontSize: pxToRem(40),
+    ...responsiveFontSizes({ sm: 52, md: 58, lg: 64 })
+  },
+  logoh2: {
+    fontFamily: FONT_TRYLAH_LOGO,
+    fontWeight: 700,
+    lineHeight: 64 / 48,
+    fontSize: pxToRem(32),
+    ...responsiveFontSizes({ sm: 40, md: 44, lg: 48 })
+  },
+  logoh3: {
+    fontFamily: FONT_TRYLAH_LOGO,
+    fontWeight: 700,
+    lineHeight: 1.5,
+    fontSize: pxToRem(24),
+    ...responsiveFontSizes({ sm: 26, md: 30, lg: 32 })
+  },
+  logoh4: {
+    fontFamily: FONT_TRYLAH_LOGO,
+    fontWeight: 700,
+    lineHeight: 1.5,
+    fontSize: pxToRem(20),
+    ...responsiveFontSizes({ sm: 20, md: 24, lg: 24 })
   }
 } as const
+
+//Module Augmentation to add new variants to MUI typography
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    logoh1: React.CSSProperties
+    logoh2: React.CSSProperties
+    logoh3: React.CSSProperties
+    logoh4: React.CSSProperties
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    logoh1?: React.CSSProperties
+    logoh2?: React.CSSProperties
+    logoh3?: React.CSSProperties
+    logoh4?: React.CSSProperties
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    logoh1: true
+    logoh2: true
+    logoh3: true
+    logoh4: true
+  }
+}
 
 export default typography

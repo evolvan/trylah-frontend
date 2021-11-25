@@ -6,8 +6,6 @@ import {
   LandingHero,
   LandingMinimal,
   LandingDarkMode,
-  LandingThemeColor,
-  LandingPricingPlans,
   LandingAdvertisement,
   LandingCleanInterfaces,
   LandingHugePackElements
@@ -35,9 +33,7 @@ export default function LandingPage() {
         <LandingMinimal />
         <LandingHugePackElements />
         <LandingDarkMode />
-        <LandingThemeColor />
         <LandingCleanInterfaces />
-        <LandingPricingPlans />
         <LandingAdvertisement />
       </ContentStyle>
     </RootStyle>

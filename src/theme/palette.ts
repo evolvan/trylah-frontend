@@ -60,46 +60,46 @@ declare module '@mui/material' {
 
 // SETUP COLORS
 const PRIMARY = {
-  lighter: '#C8FACD',
-  light: '#5BE584',
-  main: '#00AB55',
-  dark: '#007B55',
-  darker: '#005249'
+  lighter: '#FFE6D8',
+  light: '#FFA18B',
+  main: '#FF433F',
+  dark: '#B71F36',
+  darker: '#7A0C2F'
 }
 const SECONDARY = {
-  lighter: '#D6E4FF',
-  light: '#84A9FF',
-  main: '#3366FF',
-  dark: '#1939B7',
-  darker: '#091A7A'
+  lighter: '#EFFCEA',
+  light: '#C2EEBB',
+  main: '#81C784',
+  dark: '#418F52',
+  darker: '#185F34'
 }
 const INFO = {
-  lighter: '#D0F2FF',
-  light: '#74CAFF',
-  main: '#1890FF',
-  dark: '#0C53B7',
-  darker: '#04297A'
+  light: '#D5E7FE',
+  lighter: '#82AFFE',
+  main: '#2F6DFC',
+  dark: '#173DB5',
+  darker: '#091C78'
 }
 const SUCCESS = {
-  lighter: '#E9FCD4',
-  light: '#AAF27F',
-  main: '#54D62C',
-  dark: '#229A16',
-  darker: '#08660D'
+  light: '#CDFDD4',
+  lighter: '#6BF398',
+  main: '#0FD87A',
+  dark: '#079B73',
+  darker: '#026760'
 }
 const WARNING = {
-  lighter: '#FFF7CD',
-  light: '#FFE16A',
-  main: '#FFC107',
-  dark: '#B78103',
-  darker: '#7A4F01'
+  light: '#FFFAD7',
+  lighter: '#FFEB87',
+  main: '#FFD738',
+  dark: '#B7911C',
+  darker: '#7A5A0A'
 }
 const ERROR = {
-  lighter: '#FFE7D9',
-  light: '#FFA48D',
-  main: '#FF4842',
-  dark: '#B72136',
-  darker: '#7A0C2E'
+  lighter: '#FC818E',
+  light: '#FED8D5',
+  main: '#F72E6B',
+  dark: '#B11764',
+  darker: '#760855'
 }
 
 const GREY = {

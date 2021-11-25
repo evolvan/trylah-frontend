@@ -8,6 +8,8 @@ import { Link as RouterLink } from 'react-router-dom'
 // material
 import { styled } from '@mui/material/styles'
 import { Grid, Link, Divider, Container, Typography, IconButton, Stack } from '@mui/material'
+// routes
+import { PATH_PAGE } from '../../routes/paths'
 //
 import Logo from '../../components/Logo'
 
@@ -22,11 +24,11 @@ const SOCIALS = [
 
 const LINKS = [
   {
-    headline: 'Minimal',
+    headline: 'TryLah',
     children: [
-      { name: 'About us', href: '#' },
-      { name: 'Contact us', href: '#' },
-      { name: 'FAQs', href: '#' }
+      { name: 'About us', href: PATH_PAGE.about },
+      { name: 'Contact us', href: PATH_PAGE.contact },
+      { name: 'FAQs', href: PATH_PAGE.faqs }
     ]
   },
   {
@@ -39,8 +41,8 @@ const LINKS = [
   {
     headline: 'Contact',
     children: [
-      { name: 'support@minimals.cc', href: '#' },
-      { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' }
+      { name: 'hello@trylah.sg', href: '#' },
+      { name: 'We are locataed in the sunny Singapore.', href: '#' }
     ]
   }
 ]
@@ -69,8 +71,7 @@ export default function MainFooter() {
           </Grid>
           <Grid item xs={8} md={3}>
             <Typography variant="body2" sx={{ pr: { md: 5 } }}>
-              The starting point for your next project with Minimal UI Kit, built on the newest
-              version of Material-UI ©, ready to be customized to your style.
+              With TryLah, you can invest as you spend, accumulate stocks as you shop.
             </Typography>
 
             <Stack

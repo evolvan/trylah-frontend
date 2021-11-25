@@ -36,7 +36,7 @@ export default function LandingCleanInterfaces() {
         <ContentStyle>
           <MotionInView variants={varFadeInUp}>
             <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
-              clean & clear
+              Your Beloved Brands
             </Typography>
           </MotionInView>
 
@@ -50,7 +50,7 @@ export default function LandingCleanInterfaces() {
                 })
               }}
             >
-              Beautiful, modern and clean user interfaces
+              Spend with your favourite brands.
             </Typography>
           </MotionInView>
         </ContentStyle>

@@ -1,8 +1,9 @@
 // material
 import { alpha, useTheme, styled } from '@mui/material/styles'
-import { Box, Grid, Button, Container, Typography } from '@mui/material'
+import { Box, Grid, Stack, Container, Typography } from '@mui/material'
+import { motion } from 'framer-motion'
 //
-import { varFadeInUp, MotionInView } from '../../animate'
+import { varFadeInUp, MotionInView, varFadeInRight } from '../../animate'
 
 // ----------------------------------------------------------------------
 
@@ -91,34 +92,132 @@ export default function LandingHugePackElements() {
                   variant="overline"
                   sx={{ mb: 2, color: 'text.secondary' }}
                 >
-                  Interface Starter Kit
+                  You Get To Decide
                 </Typography>
               </MotionInView>
 
               <MotionInView variants={varFadeInUp}>
                 <Typography variant="h2" sx={{ mb: 3 }}>
-                  Huge pack <br />
-                  of elements
+                  MyStock Rewards
                 </Typography>
               </MotionInView>
 
               <MotionInView variants={varFadeInUp}>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  justifyContent={{ xs: 'center', md: 'flex-start' }}
+                >
+                  <Typography
+                    sx={{
+                      mb: 0,
+                      color: isLight ? 'text.secondary' : 'common.white'
+                    }}
+                  >
+                    First, choose a stock as MyStock
+                  </Typography>
+                  <img
+                    alt="sketch icon"
+                    src="/static/home/ic_mystock_symbol.svg"
+                    width={22}
+                    height={22}
+                  />
+                </Stack>
                 <Typography
                   sx={{
                     mb: 5,
                     color: isLight ? 'text.secondary' : 'common.white'
                   }}
                 >
-                  We collected most popular elements. Menu, sliders, buttons, inputs etc. are all
-                  here. Just dive in!
+                  Then, receive stock rewards in MyStock.
                 </Typography>
               </MotionInView>
 
-              <MotionInView variants={varFadeInUp}>
-                <Button size="large" color="inherit" variant="outlined">
-                  View All Components
-                </Button>
-              </MotionInView>
+              <Stack
+                direction="row"
+                spacing={1.5}
+                justifyContent={{ xs: 'center', md: 'flex-start' }}
+                sx={{ mb: 2 }}
+              >
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_apple.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_microsoft.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_google.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_amazon.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_facebook.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_tencent.svg"
+                  width={40}
+                  height={40}
+                />
+              </Stack>
+              <Stack
+                direction="row"
+                spacing={1.5}
+                justifyContent={{ xs: 'center', md: 'flex-start' }}
+              >
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_alibaba.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_netflix.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_sea.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_dbs.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_sq.svg"
+                  width={40}
+                  height={40}
+                />
+                <motion.img
+                  variants={varFadeInRight}
+                  src="/static/home/logo_singtel.svg"
+                  width={40}
+                  height={40}
+                />
+              </Stack>
             </ContentStyle>
           </Grid>
 
@@ -160,7 +259,7 @@ export default function LandingHugePackElements() {
                 >
                   <img
                     alt={`screen ${index + 1}`}
-                    src={`/static/home/screen_${isLight ? 'light' : 'dark'}_${index + 1}.png`}
+                    src={`/static/home/screen_${isLight ? 'light' : 'dark'}_${index + 1}_stock.png`}
                   />
                 </ScreenStyle>
               ))}

@@ -1,0 +1,12 @@
+fragment customerDetails on Customer {
+  id
+  emailAddress
+  phoneNumber
+}
+
+query ActiveCustomer {
+  activeCustomer {
+    __typename
+    ...customerDetails
+  }
+}

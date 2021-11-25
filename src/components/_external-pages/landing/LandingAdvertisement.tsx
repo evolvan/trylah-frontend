@@ -54,8 +54,11 @@ export default function LandingAdvertisement() {
         >
           <MotionInView variants={varFadeInDown} sx={{ color: 'common.white', mb: 5 }}>
             <Typography variant="h2">
-              Get started with
-              <br /> minimal kit today
+              Get started with <br />
+              <Typography component="span" variant="logoh2" sx={{ color: 'common.white' }}>
+                TryLah
+              </Typography>
+              &nbsp;today
             </Typography>
           </MotionInView>
           <MotionInView variants={varFadeInDown}>
@@ -63,7 +66,7 @@ export default function LandingAdvertisement() {
               size="large"
               variant="contained"
               target="_blank"
-              href="https://material-ui.com/store/items/minimal-dashboard/"
+              href="auth/register"
               sx={{
                 whiteSpace: 'nowrap',
                 boxShadow: (theme) => theme.customShadows.z8,
@@ -72,7 +75,7 @@ export default function LandingAdvertisement() {
                 '&:hover': { bgcolor: 'grey.300' }
               }}
             >
-              Purchase Now
+              Try Lah!
             </Button>
           </MotionInView>
         </Box>

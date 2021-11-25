@@ -1,0 +1,19 @@
+query GetBlogPost($id: ID!) {
+  post(id: $id) {
+    id
+    date
+    title
+    excerpt
+    author {
+      node {
+        firstName
+      }
+    }
+    featuredImage {
+      node {
+        sourceUrl
+      }
+    }
+    content
+  }
+}

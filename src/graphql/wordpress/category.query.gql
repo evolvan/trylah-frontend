@@ -1,0 +1,16 @@
+query GetCategory($name: [String]) {
+  categories(where: { name: $name }) {
+    nodes {
+      id
+      name
+      posts {
+        nodes {
+          id
+          date
+          title
+          content
+        }
+      }
+    }
+  }
+}

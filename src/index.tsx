@@ -3,11 +3,15 @@ import 'simplebar/src/simplebar.css'
 
 import ReactDOM from 'react-dom'
 import { StrictMode } from 'react'
+import { ApolloProvider } from '@apollo/client'
 import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 // contexts
 import { SettingsProvider } from './contexts/SettingsContext'
 import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext'
+//apollo
+//apollo
+import { client } from './apollo/client'
 //
 import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
@@ -18,13 +22,15 @@ import reportWebVitals from './reportWebVitals'
 ReactDOM.render(
   <StrictMode>
     <HelmetProvider>
-      <SettingsProvider>
-        <CollapseDrawerProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </CollapseDrawerProvider>
-      </SettingsProvider>
+      <ApolloProvider client={client}>
+        <SettingsProvider>
+          <CollapseDrawerProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </CollapseDrawerProvider>
+        </SettingsProvider>
+      </ApolloProvider>
     </HelmetProvider>
   </StrictMode>,
   document.getElementById('root')

@@ -8,20 +8,19 @@ import { varFadeInUp, MotionInView, varFadeInDown } from '../../animate'
 
 const CARDS = [
   {
-    icon: '/static/icons/ic_design.svg',
-    title: 'UI & UX Design',
-    description:
-      'The set is built on the principles of the atomic design system. It helps you to create projects fastest and easily customized packages for your projects.'
+    icon: '/static/icons/ic_sign-up-blue.svg',
+    title: 'Sign Up',
+    description: 'Create an account.'
   },
   {
-    icon: '/static/icons/ic_code.svg',
-    title: 'Development',
-    description: 'Easy to customize and extend each component, saving you time and money.'
+    icon: '/static/icons/ic_verify-red.svg',
+    title: 'Verify',
+    description: 'Receive your first stock reward once you verify personal info.'
   },
   {
-    icon: '/static/brand/logo_single.svg',
-    title: 'Branding',
-    description: 'Consistent design in colors, fonts ... makes brand recognition easy.'
+    icon: '/static/icons/ic_wallet-green.svg',
+    title: 'Spend',
+    description: 'Spend with TryLah partner brands to earn more stock rewards.'
   }
 ]
 
@@ -104,12 +103,12 @@ export default function LandingMinimalHelps() {
               variant="overline"
               sx={{ mb: 2, color: 'text.secondary', textAlign: 'center' }}
             >
-              Minimal
+              TryLah
             </Typography>
           </MotionInView>
           <MotionInView variants={varFadeInDown}>
             <Typography variant="h2" sx={{ textAlign: 'center' }}>
-              What minimal helps you?
+              How to earn shares?
             </Typography>
           </MotionInView>
         </Box>
@@ -119,7 +118,9 @@ export default function LandingMinimalHelps() {
             <Grid key={card.title} item xs={12} md={4}>
               <MotionInView variants={varFadeInUp}>
                 <CardStyle
-                  className={(index === 0 && 'cardLeft') || (index === 1 && 'cardCenter') || ''}
+                  className={
+                    (index === 0 && 'cardLeft') || (index === 1 && 'cardCenter') || undefined
+                  }
                 >
                   <CardIconStyle
                     src={card.icon}

@@ -56,19 +56,19 @@ export default function LandingDarkMode() {
                   variant="overline"
                   sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
                 >
-                  Easy switch between styles.
+                  Spend and Own
                 </Typography>
               </MotionInView>
 
               <MotionInView variants={varFadeInUp}>
                 <Typography variant="h2" sx={{ mb: 3, color: 'common.white' }}>
-                  Dark mode
+                  Be An Owner
                 </Typography>
               </MotionInView>
 
               <MotionInView variants={varFadeInUp}>
                 <Typography sx={{ color: 'common.white', mb: 5 }}>
-                  A dark theme that feels easier on the eyes.
+                  Own the stocks of the brands you shop with, and be an owner of the brand.
                 </Typography>
               </MotionInView>
             </ContentStyle>

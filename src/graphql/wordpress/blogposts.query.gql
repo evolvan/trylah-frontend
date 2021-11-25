@@ -1,0 +1,23 @@
+query GetBlogPosts($name: [String]) {
+  categories(where: { name: $name }) {
+    nodes {
+      posts {
+        nodes {
+          id
+          date
+          title
+          author {
+            node {
+              firstName
+            }
+          }
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+}
