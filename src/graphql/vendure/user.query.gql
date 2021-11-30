@@ -1,12 +1,28 @@
-fragment customerDetails on Customer {
+fragment userDetails on User {
+  __typename
   id
-  emailAddress
+  identifier
+  verified
+  lastLogin
+}
+
+fragment customerDetails on Customer {
+  __typename
+  id
+  title
+  firstName
+  lastName
   phoneNumber
+  emailAddress
+  createdAt
+  updatedAt
+  user {
+    ...userDetails
+  }
 }
 
 query ActiveCustomer {
   activeCustomer {
-    __typename
     ...customerDetails
   }
 }

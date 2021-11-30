@@ -28,15 +28,17 @@ export const PATH_PAGE = {
 
 export const PATH_DASHBOARD = {
   root: ROOTS_DASHBOARD,
-  general: {
-    pageOne: path(ROOTS_DASHBOARD, '/one'),
-    pageTwo: path(ROOTS_DASHBOARD, '/two'),
-    pageThree: path(ROOTS_DASHBOARD, '/three')
+  account: {
+    overview: path(ROOTS_DASHBOARD, '/overview'),
+    stock_rewards: path(ROOTS_DASHBOARD, '/stock-rewards'),
+    purchases: path(ROOTS_DASHBOARD, '/purchases')
   },
-  app: {
-    root: path(ROOTS_DASHBOARD, '/app'),
-    pageFour: path(ROOTS_DASHBOARD, '/app/four'),
-    pageFive: path(ROOTS_DASHBOARD, '/app/five'),
-    pageSix: path(ROOTS_DASHBOARD, '/app/six')
+  setting: {
+    profile: path(ROOTS_DASHBOARD, '/profile'),
+    name: path(ROOTS_DASHBOARD, '/profile/name'),
+    password: path(ROOTS_DASHBOARD, '/profile/password'),
+    phone: path(ROOTS_DASHBOARD, '/profile/phone'),
+    mystock: path(ROOTS_DASHBOARD, '/mystock'),
+    payment: path(ROOTS_DASHBOARD, '/payment')
   }
 }

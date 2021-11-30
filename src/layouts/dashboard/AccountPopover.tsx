@@ -12,6 +12,7 @@ import { Avatar, Button, Box, Divider, MenuItem, Typography } from '@mui/materia
 import { MIconButton } from '../../components/@material-extend'
 import MenuPopover from '../../components/MenuPopover'
 // hooks
+import useUser from '../../hooks/useUser'
 import useLogout from '../../hooks/useLogout'
 import useIsMountedRef from '../../hooks/useIsMountedRef'
 
@@ -32,6 +33,7 @@ export default function AccountPopover() {
   const isMountedRef = useIsMountedRef()
   const { enqueueSnackbar } = useSnackbar()
   const navigate = useNavigate()
+  const { data } = useUser()
 
   const handleOpen = () => {
     setOpen(true)
@@ -77,7 +79,7 @@ export default function AccountPopover() {
           })
         }}
       >
-        <Avatar alt="My Avatar" src="/static/mock-images/avatars/avatar_default.jpg" />
+        <Avatar alt="My Avatar" src="/static/mock-images/avatars/avatar_default.svg" />
       </MIconButton>
 
       <MenuPopover
@@ -88,10 +90,10 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle1" noWrap>
-            displayName
+            {data?.activeCustomer?.firstName}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            email
+            {data?.activeCustomer?.emailAddress}
           </Typography>
         </Box>
 

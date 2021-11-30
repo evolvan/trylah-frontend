@@ -3104,20 +3104,40 @@ export type RegisterCustomerAccountMutationVariables = Exact<{
 
 export type RegisterCustomerAccountMutation = { __typename?: 'Mutation', registerCustomerAccount: { __typename: 'MissingPasswordError' } | { __typename: 'NativeAuthStrategyError' } | { __typename: 'Success' } };
 
-export type CustomerDetailsFragment = { __typename?: 'Customer', id: string, emailAddress: string, phoneNumber?: string | null | undefined };
+export type UserDetailsFragment = { __typename: 'User', id: string, identifier: string, verified: boolean, lastLogin?: any | null | undefined };
+
+export type CustomerDetailsFragment = { __typename: 'Customer', id: string, title?: string | null | undefined, firstName: string, lastName: string, phoneNumber?: string | null | undefined, emailAddress: string, createdAt: any, updatedAt: any, user?: { __typename: 'User', id: string, identifier: string, verified: boolean, lastLogin?: any | null | undefined } | null | undefined };
 
 export type ActiveCustomerQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ActiveCustomerQuery = { __typename?: 'Query', activeCustomer?: { __typename: 'Customer', id: string, emailAddress: string, phoneNumber?: string | null | undefined } | null | undefined };
+export type ActiveCustomerQuery = { __typename?: 'Query', activeCustomer?: { __typename: 'Customer', id: string, title?: string | null | undefined, firstName: string, lastName: string, phoneNumber?: string | null | undefined, emailAddress: string, createdAt: any, updatedAt: any, user?: { __typename: 'User', id: string, identifier: string, verified: boolean, lastLogin?: any | null | undefined } | null | undefined } | null | undefined };
 
-export const CustomerDetailsFragmentDoc = gql`
-    fragment customerDetails on Customer {
+export const UserDetailsFragmentDoc = gql`
+    fragment userDetails on User {
+  __typename
   id
-  emailAddress
-  phoneNumber
+  identifier
+  verified
+  lastLogin
 }
     `;
+export const CustomerDetailsFragmentDoc = gql`
+    fragment customerDetails on Customer {
+  __typename
+  id
+  title
+  firstName
+  lastName
+  phoneNumber
+  emailAddress
+  createdAt
+  updatedAt
+  user {
+    ...userDetails
+  }
+}
+    ${UserDetailsFragmentDoc}`;
 export const LoginDocument = gql`
     mutation Login($username: String!, $password: String!) {
   login(username: $username, password: $password) {
@@ -3221,7 +3241,6 @@ export type RegisterCustomerAccountMutationOptions = Apollo.BaseMutationOptions<
 export const ActiveCustomerDocument = gql`
     query ActiveCustomer {
   activeCustomer {
-    __typename
     ...customerDetails
   }
 }

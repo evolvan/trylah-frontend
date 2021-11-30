@@ -16,13 +16,8 @@ const CATEGORIES = [
     href: 'about-trylah'
   },
   {
-    label: 'Fractional Shares',
-    icon: '/static/faqs/ic_refund.svg',
-    href: 'fractional-shares'
-  },
-  {
     label: 'Stock Rewards',
-    icon: '/static/faqs/ic_payment.svg',
+    icon: '/static/faqs/ic_refund.svg',
     href: 'stock-rewards'
   },
   {
@@ -30,11 +25,15 @@ const CATEGORIES = [
     icon: '/static/faqs/ic_account.svg',
     href: 'my-account'
   },
-
   {
-    label: 'Voucher Redemption',
+    label: 'Payments',
+    icon: '/static/faqs/ic_payment.svg',
+    href: 'payments'
+  },
+  {
+    label: 'Purchases',
     icon: '/static/faqs/ic_delivery.svg',
-    href: 'voucher-redemption'
+    href: 'purchases'
   },
   {
     label: 'Security Concerns',

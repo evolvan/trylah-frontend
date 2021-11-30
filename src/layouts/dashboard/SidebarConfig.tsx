@@ -10,38 +10,48 @@ const getIcon = (name: string) => (
 )
 
 const ICONS = {
-  user: getIcon('ic_user'),
+  profile: getIcon('ic_user'),
+  stocks: getIcon('ic_analytics'),
   ecommerce: getIcon('ic_ecommerce'),
-  analytics: getIcon('ic_analytics'),
-  dashboard: getIcon('ic_dashboard')
+  dashboard: getIcon('ic_dashboard'),
+  mystock: getIcon('ic_mystock'),
+  payment: getIcon('ic_payment')
 }
 
 const sidebarConfig = [
-  // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'general',
+    subheader: 'ACCOUNT',
     items: [
-      { title: 'One', path: PATH_DASHBOARD.general.pageOne, icon: ICONS.dashboard },
-      { title: 'Two', path: PATH_DASHBOARD.general.pageTwo, icon: ICONS.ecommerce },
-      { title: 'Three', path: PATH_DASHBOARD.general.pageThree, icon: ICONS.analytics }
+      { title: 'Dashboard', path: PATH_DASHBOARD.account.overview, icon: ICONS.dashboard },
+      { title: 'Stock Rewards', path: PATH_DASHBOARD.account.stock_rewards, icon: ICONS.stocks },
+      { title: 'Purchases', path: PATH_DASHBOARD.account.purchases, icon: ICONS.ecommerce }
     ]
   },
 
-  // MANAGEMENT
   // ----------------------------------------------------------------------
   {
-    subheader: 'management',
+    subheader: 'SETTING',
     items: [
       {
-        title: 'user',
-        path: PATH_DASHBOARD.app.root,
-        icon: ICONS.user,
+        title: 'Profile',
+        path: PATH_DASHBOARD.setting.profile,
+        icon: ICONS.profile,
         children: [
-          { title: 'Four', path: PATH_DASHBOARD.app.pageFour },
-          { title: 'Five', path: PATH_DASHBOARD.app.pageFive },
-          { title: 'Six', path: PATH_DASHBOARD.app.pageSix }
+          { title: 'Name', path: PATH_DASHBOARD.setting.name },
+          { title: 'Password', path: PATH_DASHBOARD.setting.password },
+          { title: 'Phone', path: PATH_DASHBOARD.setting.phone }
         ]
+      },
+      {
+        title: 'MyStock Choice',
+        path: PATH_DASHBOARD.setting.mystock,
+        icon: ICONS.mystock
+      },
+      {
+        title: 'Payment Methods',
+        path: PATH_DASHBOARD.setting.payment,
+        icon: ICONS.payment
       }
     ]
   }

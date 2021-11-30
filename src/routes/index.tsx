@@ -93,19 +93,21 @@ export default function Router() {
       path: 'dashboard',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/one" replace /> },
-        { path: 'one', element: <PageOne /> },
-        { path: 'two', element: <PageTwo /> },
-        { path: 'three', element: <PageThree /> },
+        { element: <Navigate to="overview" replace /> },
+        { path: 'overview', element: <PageOne /> },
+        { path: 'stock-rewards', element: <PageTwo /> },
+        { path: 'purchases', element: <PageThree /> },
         {
-          path: 'app',
+          path: 'profile',
           children: [
-            { element: <Navigate to="/dashboard/app/four" replace /> },
-            { path: 'four', element: <PageFour /> },
-            { path: 'five', element: <PageFive /> },
-            { path: 'six', element: <PageSix /> }
+            { element: <Navigate to="name" replace /> },
+            { path: 'name', element: <PageFour /> },
+            { path: 'password', element: <PageFive /> },
+            { path: 'phone', element: <PageSix /> }
           ]
-        }
+        },
+        { path: 'mystock', element: <PageTwo /> },
+        { path: 'payment', element: <PageThree /> }
       ]
     },
     // Catch-all Routes

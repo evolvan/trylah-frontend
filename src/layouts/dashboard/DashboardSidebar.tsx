@@ -2,18 +2,10 @@ import { useEffect } from 'react'
 import { Link as RouterLink, useLocation } from 'react-router-dom'
 // material
 import { alpha, styled } from '@mui/material/styles'
-import {
-  Box,
-  Link,
-  Stack,
-  Avatar,
-  Drawer,
-  Tooltip,
-  Typography,
-  CardActionArea
-} from '@mui/material'
+import { Box, Link, Stack, Drawer, Tooltip, Typography, CardActionArea } from '@mui/material'
 // hooks
 import useCollapseDrawer from '../../hooks/useCollapseDrawer'
+import useUser from '../../hooks/useUser'
 // components
 import Logo from '../../components/Logo'
 import Scrollbar from '../../components/Scrollbar'
@@ -96,6 +88,7 @@ type DashboardSidebarProps = {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: DashboardSidebarProps) {
   const { pathname } = useLocation()
+  const { data } = useUser()
 
   const { isCollapse, collapseClick, collapseHover, onToggleCollapse, onHoverEnter, onHoverLeave } =
     useCollapseDrawer()
@@ -137,22 +130,15 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
           </MHidden>
         </Stack>
 
-        {isCollapse ? (
-          <Avatar
-            alt="My Avatar"
-            src="/static/mock-images/avatars/avatar_default.jpg"
-            sx={{ mx: 'auto', mb: 2 }}
-          />
-        ) : (
+        {!isCollapse && (
           <Link underline="none" component={RouterLink} to="#">
             <AccountStyle>
-              <Avatar alt="My Avatar" src="/static/mock-images/avatars/avatar_default.jpg" />
               <Box sx={{ ml: 2 }}>
                 <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                  displayName
+                  Hi, {data?.activeCustomer?.firstName}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  role
+                  {data?.activeCustomer?.emailAddress}
                 </Typography>
               </Box>
             </AccountStyle>
