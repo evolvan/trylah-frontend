@@ -94,20 +94,26 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="overview" replace /> },
+        { path: 'my-profile', element: <Profile /> },
         { path: 'overview', element: <PageOne /> },
-        { path: 'stock-rewards', element: <PageTwo /> },
+        { path: 'stockrewards', element: <PageTwo /> },
         { path: 'purchases', element: <PageThree /> },
         {
           path: 'profile',
           children: [
             { element: <Navigate to="name" replace /> },
+            { path: 'myProfile', element: <Profile /> },
             { path: 'name', element: <PageFour /> },
             { path: 'password', element: <PageFive /> },
             { path: 'phone', element: <PageSix /> }
           ]
         },
-        { path: 'mystock', element: <PageTwo /> },
-        { path: 'payment', element: <PageThree /> }
+        { path: 'mystock', element: <PageThree /> },
+        { path: 'payment', element: <PageThree /> },
+        { path: 'myInfo', element: <PageFour /> },
+        { path: 'myorders', element: <PageOne /> },
+        { path: 'invitefriends', element: <PageThree /> },
+        { path: 'logout', element: <PageTwo /> }
       ]
     },
     // Catch-all Routes
@@ -135,6 +141,7 @@ const PageThree = Loadable(lazy(() => import('../pages/PageThree')))
 const PageFour = Loadable(lazy(() => import('../pages/PageFour')))
 const PageFive = Loadable(lazy(() => import('../pages/PageFive')))
 const PageSix = Loadable(lazy(() => import('../pages/PageSix')))
+const Profile = Loadable(lazy(() => import('../pages/MyProfile')))
 
 // Main
 const LandingPage = Loadable(lazy(() => import('../pages/LandingPage')))

@@ -135,7 +135,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
             <AccountStyle>
               <Box sx={{ ml: 2 }}>
                 <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                  Hi, {data?.activeCustomer?.firstName}
+                  {data?.activeCustomer?.firstName}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                   {data?.activeCustomer?.emailAddress}

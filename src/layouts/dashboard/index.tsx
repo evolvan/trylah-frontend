@@ -7,6 +7,7 @@ import useCollapseDrawer from '../../hooks/useCollapseDrawer'
 //
 import DashboardNavbar from './DashboardNavbar'
 import DashboardSidebar from './DashboardSidebar'
+import Profile from '../../pages/MyProfile'
 
 // ----------------------------------------------------------------------
 
