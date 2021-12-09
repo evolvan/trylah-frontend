@@ -7,7 +7,7 @@ const vendureLink = new HttpLink({
   // Production
   //uri: 'https://demo.trylah.sg/shop-api',
 
-  uri: 'http://localhost:3000/shop-api',
+  uri: process.env.REACT_APP_SHOP_API_URL || 'http://localhost:3000/shop-api',
   credentials: 'include'
 })
 
