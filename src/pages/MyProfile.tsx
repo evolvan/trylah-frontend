@@ -1,11 +1,17 @@
 // material
 import { styled } from '@mui/material/styles'
+import { useMutation, useQuery } from '@apollo/client'
+import GET_ACTIVE_CUSTOMER from '../Api/Querries/GetActiveCustomer'
+import {
+  UPDATE_ACTIVECUSTOMER,
+  REQUESTCUSTOMER_UPDATEEMAILADDRESS,
+  UPDATE_CUSTOMER_PASSWORD
+} from '../Api/Mutations/UpdateActiveCustomer'
 
 // components
 import Page from '../components/Page'
-import { fontSize } from '@mui/system'
 import MyProfileFormFields from 'components/MyProfileFormFields'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ex from '../icons/ex.png'
 import rightArrow from '../icons/rightArrow.svg'
 
@@ -30,8 +36,62 @@ export default function MyProfile() {
     myInfo: ''
   })
 
+  const firstname = formState.name.split(' ')[0]
+  const lastname = formState.name.split(' ')[1]
+
+  console.log('firstname >>>', firstname)
+  console.log('lastname >>>', lastname)
+
+  const { data } = useQuery(GET_ACTIVE_CUSTOMER)
+
+  const [updateCustomer, { data: updatedData, loading: updationLoading, error: updationError }] =
+    useMutation(UPDATE_ACTIVECUSTOMER)
+
+  console.log('loading >>>', updationLoading)
+
+  const [requestUpdateCustomerEmailAddress] = useMutation(REQUESTCUSTOMER_UPDATEEMAILADDRESS)
+
+  const [updateCustomerPassword] = useMutation(UPDATE_CUSTOMER_PASSWORD)
+
   const handleSubmitData = (e: any, id: string) => {
-    console.log(e.target.value, id)
+    setFormState({ ...formState, [id]: e.target.value })
+  }
+
+  const UpdateActiveCustomer = (e: any, id: string) => {
+    if (id === 'name') {
+      updateCustomer({
+        variables: {
+          firstName: firstname,
+          lastName: lastname,
+          phoneNumber: data.activeCustomer.phoneNumber
+        }
+      })
+    }
+    if (id === 'phone') {
+      updateCustomer({
+        variables: {
+          firstName: data.activeCustomer.firstName,
+          lastName: data.activeCustomer.lastName,
+          phoneNumber: formState.phone.toString()
+        }
+      })
+    }
+    if (id === 'email') {
+      requestUpdateCustomerEmailAddress({
+        variables: {
+          password: '123456789',
+          newEmailAddress: formState.email
+        }
+      })
+    }
+    if (id === 'password') {
+      updateCustomerPassword({
+        variables: {
+          currentPassword: '123456789',
+          newPassword: formState.password
+        }
+      })
+    }
   }
 
   return (
@@ -47,11 +107,11 @@ export default function MyProfile() {
         <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '50px' }}>
           <h1>My Profile</h1>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ marginRight: '10px' }}>Dashboard</span>{' '}
+            <span style={{ marginRight: '10px' }}>Dashboard</span>
             <i
               style={{ fontSize: '5px', marginRight: '10px', opacity: '.6' }}
               className="fas fa-circle"
-            ></i>{' '}
+            ></i>
             <span>My Profile</span>
           </div>
         </div>
@@ -65,18 +125,20 @@ export default function MyProfile() {
         >
           <MyProfileFormFields
             label="Name"
-            placeholder="Carlota Monterio"
-            buttonText="Update Name"
+            placeholder={`${data.activeCustomer.firstName} ${data.activeCustomer.lastName}`}
+            buttonText={`${updationLoading ? 'Loading..' : 'Update Name'}`}
             verifiedText=""
             data={formState.name}
             handleSubmitData={handleSubmitData}
             id="name"
             icon=""
             arrowIcon=""
+            UpdateActiveCustomer={UpdateActiveCustomer}
+            type="text"
           />
           <MyProfileFormFields
             label="Email Address"
-            placeholder="carlotamonte@gmail.com"
+            placeholder={`${data.activeCustomer.emailAddress}`}
             buttonText="Update Email"
             verifiedText="Verified"
             data={formState.email}
@@ -84,17 +146,21 @@ export default function MyProfile() {
             id="email"
             icon=""
             arrowIcon=""
+            UpdateActiveCustomer={UpdateActiveCustomer}
+            type="email"
           />
           <MyProfileFormFields
             label="Phone Number"
-            placeholder="+65 63297563"
-            buttonText="Update Phone Number"
+            placeholder={`${data.activeCustomer.phoneNumber}`}
+            buttonText={`${updationLoading ? 'Loading..' : 'Update Phone Number'}`}
             verifiedText="Verified"
             data={formState.phone}
             handleSubmitData={handleSubmitData}
             id="phone"
             icon=""
             arrowIcon=""
+            UpdateActiveCustomer={UpdateActiveCustomer}
+            type="number"
           />
           <MyProfileFormFields
             label="Password"
@@ -106,6 +172,8 @@ export default function MyProfile() {
             id="password"
             icon=""
             arrowIcon=""
+            UpdateActiveCustomer={UpdateActiveCustomer}
+            type="password"
           />
           <MyProfileFormFields
             label="MyStock"
@@ -117,6 +185,8 @@ export default function MyProfile() {
             id="mystock"
             icon=""
             arrowIcon=""
+            UpdateActiveCustomer={UpdateActiveCustomer}
+            type="text"
           />
           <MyProfileFormFields
             label="My Info"
@@ -128,6 +198,8 @@ export default function MyProfile() {
             id="myInfo"
             icon={ex}
             arrowIcon={rightArrow}
+            UpdateActiveCustomer={UpdateActiveCustomer}
+            type="text"
           />
         </div>
       </div>

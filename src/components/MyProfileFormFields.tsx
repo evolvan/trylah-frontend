@@ -3,8 +3,9 @@ import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles'
 import '../assets/styles/style.css'
 import check from '../icons/check.png'
+import { string } from 'yup/lib/locale'
 
-const BootstrapButton = styled(Button)({
+const UpdateButton = styled(Button)({
   boxShadow: 'none',
   textTransform: 'none',
   fontSize: 12,
@@ -60,6 +61,8 @@ type fieldProps = {
   id: string
   icon: any
   arrowIcon: any
+  UpdateActiveCustomer: any
+  type: string
 }
 
 const MyProfileFormFields = ({
@@ -71,7 +74,9 @@ const MyProfileFormFields = ({
   handleSubmitData,
   id,
   icon,
-  arrowIcon
+  arrowIcon,
+  UpdateActiveCustomer,
+  type
 }: fieldProps) => {
   console.log(data, handleSubmitData)
   return (
@@ -120,10 +125,11 @@ const MyProfileFormFields = ({
           </span>
         ) : (
           <input
-            type="text"
+            type={type}
             placeholder={placeholder}
             value={data}
             onChange={(e) => handleSubmitData(e, id)}
+            autoComplete={'off'}
             id={id}
             style={{
               border: 'none',
@@ -153,7 +159,11 @@ const MyProfileFormFields = ({
             <img src={check} alt="" height="10px" style={{ marginLeft: '6px' }} />
           </VerifiedButton>
         )}
-        <BootstrapButton variant="contained" disableRipple>
+        <UpdateButton
+          variant="contained"
+          disableRipple
+          onClick={(e) => UpdateActiveCustomer(e, id)}
+        >
           {buttonText}
 
           {arrowIcon === '' ? null : (
@@ -162,7 +172,7 @@ const MyProfileFormFields = ({
               className="fas fa-long-arrow-alt-right"
             ></i>
           )}
-        </BootstrapButton>
+        </UpdateButton>
       </div>
     </div>
   )
