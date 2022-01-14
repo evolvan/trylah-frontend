@@ -39,15 +39,10 @@ export default function MyProfile() {
   const firstname = formState.name.split(' ')[0]
   const lastname = formState.name.split(' ')[1]
 
-  console.log('firstname >>>', firstname)
-  console.log('lastname >>>', lastname)
-
   const { data } = useQuery(GET_ACTIVE_CUSTOMER)
 
   const [updateCustomer, { data: updatedData, loading: updationLoading, error: updationError }] =
     useMutation(UPDATE_ACTIVECUSTOMER)
-
-  console.log('loading >>>', updationLoading)
 
   const [requestUpdateCustomerEmailAddress] = useMutation(REQUESTCUSTOMER_UPDATEEMAILADDRESS)
 
